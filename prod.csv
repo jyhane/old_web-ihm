@@ -1,0 +1,14 @@
+id,nom,description,prix,image
+1,Sac de sport,Un sac de sport de haute qualité,20.00,pack/ressources/prod1.png
+2,Basket,Des baskets confortables pour la course,180.00,pack/ressources/prod2.png
+3,Short,Un short léger pour le sport,89.00,pack/ressources/prod3.png
+4,Slip,Un slip confortable pour femme,20.00,pack/ressources/prod4.png
+5,Chaussettes,Des chaussettes de sport,180.00,pack/ressources/prod5.png
+6,Maillot,Un maillot de sport de haute qualité,89.00,pack/ressources/prod6.png
+7,Brassière,Maintien fort,55.99,pack/ressources/prod7.png
+8,Jupe,Jupe de sport,24.99,pack/ressources/prod8.png
+9,Legging,Legging de fitness,67.99,pack/ressources/prod9.png
+10,Veste,Description produit 10,80.00,pack/ressources/prod10.png
+11,Tee-shirt,Sportswear,80.00,pack/ressources/prod11.png
+12,Sweat à capuche,Sportswear,80.00,pack/ressources/prod12.png
+13,Robe,Adidas Originas Sportswear,80.00,pack/ressources/prod13.png

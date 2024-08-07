@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" >
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="draft_prod.css" rel="stylesheet">
-    <title>Drafts Produits</title>
+    <title>Produits</title>
 </head>
 <body>
 <?php include 'header.inc.php'; ?>
 <main>
-    <h1>Design</h1>
     <div class="product-listing">
         <aside class="sidebar">
             <h2>Shop By</h2>
@@ -22,9 +21,15 @@
                     <li><a href="#">Sac de sport (50)</a></li>
                     <li><a href="#">Basket (10)</a></li>
                     <li><a href="#">Short (50)</a></li>
-                    <li><a href="#">Chaussettes (50)</a></li>
-                    <li><a href="#">Maillot (50)</a></li>
-                    <li><a href="#">Slip (50)</a></li>
+                    <li><a href="#">Chaussettes (12)</a></li>
+                    <li><a href="#">Maillot (37)</a></li>
+                    <li><a href="#">Slip (25)</a></li>
+                    <li><a href="#">Brassière (8)</a></li>
+                    <li><a href="#">Tee-Shirt (88)</a></li>
+                    <li><a href="#">Sweat à capuche (12)</a></li>
+                    <li><a href="#">Legging (55)</a></li>
+                    <li><a href="#">Veste (2)</a></li>
+                    <li><a href="#">Robe (18)</a></li>
                 </ul>
             </div>
             <div class="filter">
@@ -53,96 +58,81 @@
                 <img src="pack/ressources/img-03.png" alt="Banner">
             </div>
             <div class="container">
-                <!-- First row with three products -->
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="p-3 border bg-light text-center">
-                            <img src="pack/ressources/prodA.png" class="img-fluid" alt="sac Adidas">
-                            <h5>Sac de sport</h5>
-                            <p>€ 20.00</p>
-                            <a href="chariot.php?id=sac" id="sac" alt="sacAdidas">
-                                <img src="pack/ressources/img-11.png" alt="addToCart">
-                                <img src="pack/ressources/img-12.png" alt="12">
-                                <img src="pack/ressources/img-13.png" alt="13">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="p-3 border bg-light text-center">
-                            <img src="pack/ressources/prod2.png" class="img-fluid" alt="basket Adidas">
-                            <h5>Basket</h5>
-                            <p><span class="prix-original">€ 220.00</span> € 180</p>
-                            <a href="chariot.php?id=basket" id="basket" alt="basket">
-                                <img src="pack/ressources/img-11.png" alt="addToCart">
-                                <img src="pack/ressources/img-12.png" alt="12">
-                                <img src="pack/ressources/img-13.png" alt="13">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="p-3 border bg-light text-center">
-                            <img src="pack/ressources/prod3.png" class="img-fluid" alt="short Adidas">
-                            <h5>Short</h5>
-                            <p><span class="prix-original">€ 89.00</span></p>
-                            <a href="chariot.php?id=short" id="short" alt="short">
-                                <img src="pack/ressources/img-11.png" alt="addToCart">
-                                <img src="pack/ressources/img-12.png" alt="12">
-                                <img src="pack/ressources/img-13.png" alt="13">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Second row with three products -->
-                <div class="row mt-4">
-                    <div class="col-md-4">
-                        <div class="p-3 border bg-light text-center">
-                            <img src="pack/ressources/prod4.png" class="img-fluid" alt="slip">
-                            <h5>Slip - Femme</h5>
-                            <p>€ 20.00</p>
-                            <a href="chariot.php?id=slip" id="slip" alt="slip">
-                                <img src="pack/ressources/img-11.png" alt="addToCart">
-                                <img src="pack/ressources/img-12.png" alt="12">
-                                <img src="pack/ressources/img-13.png" alt="13">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="p-3 border bg-light text-center">
-                            <img src="pack/ressources/prod5.png" class="img-fluid" alt="chaussettes">
-                            <h5>Basket</h5>
-                            <p><span class="prix-original">€ 220.00</span> € 180</p>
-                            <a href="chariot.php?id=socket" id="socket" alt="chaussettes">
-                                <img src="pack/ressources/img-11.png" alt="addToCart">
-                                <img src="pack/ressources/img-12.png" alt="12">
-                                <img src="pack/ressources/img-13.png" alt="13">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="p-3 border bg-light text-center">
-                            <img src="pack/ressources/prod6.png" class="img-fluid" alt="maillot">
-                            <h5>Short</h5>
-                            <p><span class="prix-original">€ 89.00</span></p>
-                            <a href="chariot.php?id=maillot" id="maillot" alt="maillot">
-                                <img src="pack/ressources/img-11.png" alt="addToCart">
-                                <img src="pack/ressources/img-12.png" alt="12">
-                                <img src="pack/ressources/img-13.png" alt="13">
-                            </a>
-                        </div>
+                    <div class="row">
+                        <?php
+                        // Nombre de produits par page
+                        $productsPerPage = 6;
+                        // Déterminer la page actuelle
+                        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                        // Calculer l'offset
+                        $offset = ($currentPage - 1) * $productsPerPage;
+
+                        // Ouvrir le fichier CSV
+                        if (($handle = fopen("prod.csv", "r")) !== FALSE) {
+                            // Lire la première ligne pour obtenir les en-têtes de colonne
+                            $headers = fgetcsv($handle, 1000, ",");
+                            // Compteur de produits
+                            $count = 0;
+                            // Boucle pour lire les lignes et les afficher en fonction de la page actuelle
+                            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                                if ($count >= $offset && $count < $offset + $productsPerPage) {
+                                    // Associer les données aux en-têtes de colonne
+                                    $product = array_combine($headers, $data);
+                                    // Afficher les produits
+                                    echo '<div class="col-md-4">';
+                                    echo '<div class="p-3 border bg-light text-center product-item">';
+                                    echo '<img src="' . $product['image'] . '" class="img-fluid" alt="' . $product['nom'] . '">';
+                                    echo '<h5>' . $product['nom'] . '</h5>';
+                                    echo '<p>' . $product['description'] . '</p>';
+                                    echo '<p>€ ' . $product['prix'] . '</p>';
+                                    echo '<a href="chariot.php?id=' . $product['id'] . '">';
+                                    echo '<img id="cart" src="pack/ressources/img-11.png" alt="addToCart">';
+                                    echo '</a>';
+                                    echo '</div>';
+                                    echo '</div>';
+                                }
+                                $count++;
+                            }
+                            fclose($handle);
+                        } else {
+                            echo "Erreur lors de l'ouverture du fichier CSV.";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
             <div class="pagination">
-                <a href="page2.prod.php">next &raquo;</a>
+                <?php
+                // Calculer le nombre total de produits
+                if (($handle = fopen("prod.csv", "r")) !== FALSE) {
+                    fgetcsv($handle, 1000, ","); // Sauter les en-têtes
+                    $totalProducts = 0;
+                    while (fgetcsv($handle, 1000, ",")) {
+                        $totalProducts++;
+                    }
+                    fclose($handle);
+                }
+
+                // Calculer le nombre total de pages
+                $totalPages = ceil($totalProducts / $productsPerPage);
+
+                // Afficher les liens de pagination
+                if ($currentPage > 1) {
+                    echo '<a href="?page=' . ($currentPage - 1) . '">&laquo; Previous</a>';
+                }
+                for ($i = 1; $i <= $totalPages; $i++) {
+                    if ($i == $currentPage) {
+                        echo '<strong>' . $i . '</strong>';
+                    } else {
+                        echo '<a href="?page=' . $i . '">' . $i . '</a>';
+                    }
+                }
+                if ($currentPage < $totalPages) {
+                    echo '<a href="?page=' . ($currentPage + 1) . '">Next &raquo;</a>';
+                }
+                ?>
             </div>
-        <!--    <div class="pagination">
-                    <a href="#">&laquo;</a>
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">next</a>
-                    <a href="#">&raquo;</a>
-                </div>
-        -->
         </div>
     </div>
 </main>
